@@ -22,10 +22,18 @@ class BouncingButton extends StatefulWidget {
   ///check to stay on bottom or not
   final bool stayOnBottom;
 
+  ///animation dissmissed value
+  final double lowerBound;
+
+  ///animation completion value
+  final double upperBound;
+
   const BouncingButton({Key? key,
     required this.child,
     required this.onPressed,
     this.scaleFactor = 1,
+    this.lowerBound = 0.0,
+    this.upperBound = 0.3,
     this.duration = const Duration(milliseconds: 300),
     this.stayOnBottom = false}) : super(key: key);
 
@@ -45,6 +53,8 @@ class _BouncingButtonState extends State<BouncingButton> with SingleTickerProvid
   double get scaleFactor => widget.scaleFactor;
   Duration get duration => widget.duration;
   bool get _stayOnBottom => widget.stayOnBottom;
+  double get _lowerBound => widget.lowerBound;
+  double get _upperBound => widget.upperBound;
 
   @override
   void initState() {
@@ -52,8 +62,8 @@ class _BouncingButtonState extends State<BouncingButton> with SingleTickerProvid
     _controller = AnimationController(
       vsync: this,
       duration: duration,
-      lowerBound: 0.0,
-      upperBound: 0.3,
+      lowerBound: _lowerBound,
+      upperBound: _upperBound,
     )..addListener(() {
       setState(() {});
     });
