@@ -1,5 +1,5 @@
 name: bouncing_button
-description: A new Flutter package.
+description: A widget tha enables you make bouncing animation on your buttons after you click on it.
 version: 0.0.1+2
 homepage: https://github.com/chaliseminas/bouncing_buttons
 
