@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
                 ),
                 child: const Padding(
                   padding: EdgeInsets.all(12.0),
-                  child: Icon(Icons.favorite),
+                  child: Icon(Icons.favorite, color: Colors.blueAccent),
                 ),
               ),
             ),
