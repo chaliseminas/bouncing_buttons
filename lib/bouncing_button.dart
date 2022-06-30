@@ -6,7 +6,6 @@ library bouncing_button;
 import 'package:flutter/material.dart';
 
 class BouncingButton extends StatefulWidget {
-
   ///child widget to make animated
   final Widget child;
 
@@ -28,21 +27,23 @@ class BouncingButton extends StatefulWidget {
   ///animation completion value
   final double upperBound;
 
-  const BouncingButton({Key? key,
-    required this.child,
-    required this.onPressed,
-    this.scaleFactor = 1,
-    this.lowerBound = 0.0,
-    this.upperBound = 0.3,
-    this.duration = const Duration(milliseconds: 300),
-    this.stayOnBottom = false}) : super(key: key);
+  const BouncingButton(
+      {Key? key,
+      required this.child,
+      required this.onPressed,
+      this.scaleFactor = 1,
+      this.lowerBound = 0.0,
+      this.upperBound = 0.3,
+      this.duration = const Duration(milliseconds: 300),
+      this.stayOnBottom = false})
+      : super(key: key);
 
   @override
   State<BouncingButton> createState() => _BouncingButtonState();
 }
 
-class _BouncingButtonState extends State<BouncingButton> with SingleTickerProviderStateMixin {
-
+class _BouncingButtonState extends State<BouncingButton>
+    with SingleTickerProviderStateMixin {
   ///Animation controller to toggle animation of widget
   late AnimationController _controller;
   late double _scale;
@@ -65,8 +66,8 @@ class _BouncingButtonState extends State<BouncingButton> with SingleTickerProvid
       lowerBound: _lowerBound,
       upperBound: _upperBound,
     )..addListener(() {
-      setState(() {});
-    });
+        setState(() {});
+      });
     super.initState();
   }
 
@@ -161,7 +162,7 @@ class _BouncingButtonState extends State<BouncingButton> with SingleTickerProvid
 
   bool _isOutsideChildBox(Offset touchPosition) {
     final RenderBox? childRenderBox =
-    _childKey.currentContext?.findRenderObject() as RenderBox?;
+        _childKey.currentContext?.findRenderObject() as RenderBox?;
     if (childRenderBox == null) {
       return true;
     }
