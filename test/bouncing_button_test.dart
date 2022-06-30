@@ -5,7 +5,7 @@ import 'package:bouncing_button/bouncing_button.dart';
 
 void main() {
   test('adds one to input values', () {
-    final bouncingButton = BouncingButton(
+    BouncingButton(
       child: const Icon(Icons.favorite),
       onPressed: () {
         debugPrint("pressed!");
